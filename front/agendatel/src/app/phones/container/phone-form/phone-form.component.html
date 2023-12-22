@@ -1,0 +1,40 @@
+<mat-card>
+
+  <mat-toolbar color="primary">Criar contato</mat-toolbar>
+
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="name" #name />
+        <mat-hint align="end">{{name.value.length || 0}} / 50</mat-hint>
+        <mat-error *ngIf="form.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Telefone" formControlName="nphone" />
+        <mat-icon matSuffix>call</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Celular" formControlName="mobile" />
+        <mat-icon matSuffix>smartphone</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email" formControlName="email" #email />
+        <mat-error *ngIf="form.get('email')?.invalid" isValid = false >{{getErrorMessage('email')}}</mat-error>
+        <mat-icon matSuffix>mail</mat-icon>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary"
+      [disabled]="form.status == 'VALID'? false:true"
+      (click)="onSubmit()">Salvar</button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+
+</mat-card>
+

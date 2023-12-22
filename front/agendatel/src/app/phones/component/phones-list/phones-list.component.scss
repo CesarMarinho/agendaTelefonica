@@ -1,0 +1,21 @@
+.mat-table {
+  overflow: auto;
+  max-height: 600px;
+}
+
+.action-column {
+  flex: 0 0 100px;
+}
+
+.action-column-header {
+  flex: 0 0 66px;
+}
+
+.favorite-button-on{
+  color: #FF1744;
+}
+
+.favorite-button-off{
+  color: #E0E0E0;
+}
+

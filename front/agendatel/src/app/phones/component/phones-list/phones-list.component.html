@@ -1,0 +1,73 @@
+<mat-table [dataSource]="phones" multiTemplateDataRows
+class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Nome:</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+  </ng-container>
+
+  <!-- Mobile Column -->
+  <ng-container matColumnDef="mobile">
+    <mat-header-cell *matHeaderCellDef>Cel.</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.mobile }}</mat-cell>
+  </ng-container>
+
+  <!-- Phone Column -->
+  <ng-container matColumnDef="phone">
+    <mat-header-cell *matHeaderCellDef>Tel.</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.nphone }}</mat-cell>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.email }}</mat-cell>
+  </ng-container>
+
+  <!-- Favorite Column -->
+  <ng-container matColumnDef="favorite">
+    <mat-header-cell *matHeaderCellDef>Favoritos</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-icon aria-hidden="false" aria-label="favorite">{{
+        element.isFavorite | favorite
+      }}</mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Action Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Adicionar contato">
+        <mat-icon (click)="onAdd()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let phone" class="action-column">
+      <button
+        mat-icon-button
+        aria-label="Favoritar contato"
+        [ngClass]="
+          phone.isFavorite == true
+            ? 'favorite-button-on'
+            : 'favorite-button-off'
+        "
+      >
+        <mat-icon (click)="onFavorite(phone)">favorite</mat-icon>
+      </button>
+
+      <button mat-icon-button color="primary" aria-label="Editar contato">
+        <mat-icon (click)="onEdit(phone)">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="Remover contato">
+        <mat-icon (click)="onDelete(phone)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row
+  (click)="onClick(row)"
+  *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

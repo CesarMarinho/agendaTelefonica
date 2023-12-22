@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AgendatelApplication<agendatel>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.cesar.agendatel.AgendatelApplication",
+            "projectName": "agendatel",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

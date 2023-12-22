@@ -1,0 +1,4 @@
+[
+  {"_id":"1", "name":"Cesar", "nMobile":"81985710906", "nPhone":"3252-0000", "isFavorite":true},
+  {"_id":"2", "name":"Zé", "nMobile":"81985710906", "nPhone":"3252-0000", "isFavorite":false}
+]
